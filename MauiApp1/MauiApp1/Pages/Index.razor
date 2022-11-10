@@ -1,0 +1,21 @@
+﻿@page "/"
+
+@inject NavigationManager NavigationManager
+
+<h1>Hello, world!</h1>
+
+<TextEdit @bind-Text="@text" /> // not working..
+
+@*<InputText id="text" @bind-Value="text" />*@  work with the native component
+
+
+<button id="btn" class="btn btn-primary" @onclick="ReloadPage">Reload current page </button>
+
+@code {
+    private string text;
+
+    void ReloadPage()
+    {
+        NavigationManager.NavigateTo(NavigationManager.Uri, true);
+    }
+}
